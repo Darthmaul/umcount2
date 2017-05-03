@@ -5,15 +5,17 @@ import {
   Text
 } from 'react-native'
 import {observer} from 'mobx-react/native'
+var uuid = require('react-native-uuid');
+
 
 @observer
 class CounterRow extends React.Component {
   render () {
-    let counter = this.props.counter
+    const counter = this.props.counter
     return (
       <View>
-        <Text>Counter: {counter.count}</Text>
-        <Button onPress={counter.increase} title="+1" />
+        <Text>{counter.count}</Text>
+        <Button onPress={counter.increase} title="+1" key={uuid.v4()} />
       </View>
     )
   }

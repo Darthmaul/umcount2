@@ -5,7 +5,6 @@ import store from './mobx/counterStore.js'
 import CounterRow from './counterRow.js'
 var uuid = require('react-native-uuid');
 
-
 @observer
 class NewItem extends Component {
   constructor (props) {
@@ -59,11 +58,12 @@ const NoItems = () => (
     <Text style={styles.noItemText}>No Items, Add Items To Get Started</Text>
   </View>
 )
+
 const Items = ({items}) => (
   <View style={{flex: 1, paddingTop: 10}}>
    {items.map((item, i) => {
         return (<View key={uuid()}>
-          <Text style={styles.item} key={i}>• {item} </Text>
+          <Text style={styles.item} key={i}>• {item}</Text>
           <CounterRow key={uuid.v4()} counter={store.counter} />
           </View>
         )})
